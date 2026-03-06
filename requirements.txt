@@ -1,2 +1,0 @@
-flask
-ChatterBot==1.0.4

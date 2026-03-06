@@ -1,7 +1,5 @@
-import time
-time.clock = time.time
-from chatbot import CB
 from flask import Flask, render_template, request
+from chatbot import get_quote
 
 app = Flask(__name__)
 
@@ -12,5 +10,7 @@ def home():
 @app.route("/get")
 def get_bot_response():
     userText = request.args.get('msg')
-    return str(CB.get_response(userText))
-app.run(debug = True)
+    return get_quote(userText)
+
+if __name__ == "__main__":
+    app.run(debug=True)
